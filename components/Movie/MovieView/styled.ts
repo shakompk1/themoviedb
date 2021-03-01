@@ -3,6 +3,7 @@ import * as Material from "@material-ui/core";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 
 export const STVisibilityIcon = styled(VisibilityIcon)`
+    font-size: 1em !important;
     position: absolute;
     top: 10px;
     right: 10px;
