@@ -1,0 +1,5 @@
+{
+    "host": "https://api.themoviedb.org/3",
+    "moviePopular": "/movie/popular",
+    "genreList": "/genre/movie/list"
+}
