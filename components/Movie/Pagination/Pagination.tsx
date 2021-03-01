@@ -7,7 +7,7 @@ const Pagination: React.FC<TPPagination> = ({
     changePage,
     takeMovieList,
 }) => {
-    const handleChange = (event, value: number) => {
+    const onHandleChange = (event, value: number) => {
         changePage(value);
         takeMovieList();
     };
@@ -15,7 +15,7 @@ const Pagination: React.FC<TPPagination> = ({
         <STPagination
             count={totalPage}
             color="secondary"
-            onChange={handleChange}
+            onChange={onHandleChange}
         />
     );
 };
