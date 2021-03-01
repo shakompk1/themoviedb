@@ -4,7 +4,7 @@ export interface InitialState {
     totalPage: number;
     currentPage: number;
     movieList: Array<MovieList>;
-    movieGenere?: GenreList | any;
+    movieGenere?: GenreList | {};
 }
 
 export interface MovieList {
@@ -31,5 +31,5 @@ export interface Genre {
 }
 
 export interface GenreList {
-    genres: Array<Genre>;
+    genres?: Array<Genre>;
 }
