@@ -7,23 +7,24 @@ import { TPMovie, Genre } from "./type";
 import { MOVIE_POSTER } from "src/api";
 
 const MovieCard: React.FC<TPMovie> = ({
-    adult,
-    backdrop_path,
-    genre_ids,
-    genre_name,
-    id,
-    original_language,
-    original_title,
-    overview,
-    popularity,
-    poster_path,
-    release_date,
-    title,
-    video,
-    vote_average,
-    vote_count,
+    movie: {
+        adult,
+        backdrop_path,
+        genre_ids,
+        genre_name,
+        id,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+        title,
+        video,
+        vote_average,
+        vote_count,
+    },
 }) => {
-    const { t } = useTranslation();
     return (
         <Styled.STCard>
             <Styled.STCardMedia
@@ -31,7 +32,7 @@ const MovieCard: React.FC<TPMovie> = ({
                 title={original_title}
             >
                 <MovieView
-                    {...{
+                    movie={{
                         vote_average,
                         vote_count,
                         title,
@@ -46,11 +47,11 @@ const MovieCard: React.FC<TPMovie> = ({
             <Styled.STGrid container spacing={3}>
                 <Styled.STGrid item xs={8}>
                     <Styled.STPaper>
-                        {genre_name.map((item, index: number) => {
+                        {genre_name.map((item: Genre, index: number) => {
                             return (
                                 <MovieGenre
                                     key={item.id}
-                                    {...{ item, index, status: true }}
+                                    genre={{ item, index, status: true }}
                                 />
                             );
                         })}

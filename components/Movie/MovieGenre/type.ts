@@ -1,8 +1,10 @@
 export type IProps = {
-    item: {
-        id: number;
-        name: string;
+    genre: {
+        item: {
+            id: number;
+            name: string;
+        };
+        index: number;
+        status: boolean;
     };
-    index: number;
-    status: boolean;
 };

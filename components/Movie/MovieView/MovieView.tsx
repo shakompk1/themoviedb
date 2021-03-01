@@ -2,26 +2,22 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MovieGenre from "../MovieGenre/";
 import * as Styled from "./styled";
-import { TPMovieView } from "./type";
+import { TPMovieView, Genre } from "./type";
 
 const MovieView: React.FC<TPMovieView> = ({
-    vote_average,
-    vote_count,
-    title,
-    overview,
-    genre_name,
+    movie: { vote_average, vote_count, title, overview, genre_name },
 }) => {
     const { t } = useTranslation();
     const [isShown, setIsShown] = useState<boolean>(false);
     const voteRate = vote_average;
     const voteAverage = vote_count;
-    
+
     const onHandle = () => {
         setIsShown((prevState) => !prevState);
     };
 
     return (
-        <div>
+        <>
             <Styled.STPaper>
                 {t("rate")}: {voteRate}/{voteAverage}
             </Styled.STPaper>
@@ -41,17 +37,17 @@ const MovieView: React.FC<TPMovieView> = ({
                     <Styled.STBlockTitle variant="h5" component="h4">
                         {t("genre")}
                     </Styled.STBlockTitle>
-                    {genre_name.map((item, index) => {
+                    {genre_name.map((item: Genre, index: number) => {
                         return (
                             <MovieGenre
                                 key={item.id}
-                                {...{ item, index, status: false }}
+                                genre={{ item, index, status: false }}
                             />
                         );
                     })}
                 </Styled.STCard>
             )}
-        </div>
+        </>
     );
 };
 

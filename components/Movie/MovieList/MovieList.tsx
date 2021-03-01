@@ -9,7 +9,7 @@ const MovieList: React.FC<IProps> = ({ movies }) => (
     <MainLayout title="Movies">
         <STMain>
             {movies.map((movie) => (
-                <MovieCard key={movie.id} {...movie} />
+                <MovieCard key={movie.id} movie={movie} />
             ))}
         </STMain>
         <STPagination />

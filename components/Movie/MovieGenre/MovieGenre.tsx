@@ -2,7 +2,7 @@ import React from "react";
 import { STChip } from "./styled";
 import { IProps } from "./type";
 
-const MovieGenre: React.FC<IProps> = ({ item, index, status }) => {
+const MovieGenre: React.FC<IProps> = ({ genre: { item, index, status } }) => {
     if (index > 1 && status) {
         return null;
     } else {
