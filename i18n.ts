@@ -20,7 +20,7 @@ i18n.use(Backend)
     .init({
         resources,
         fallbackLng: "en",
-        debug: true,
+        debug: false,
         detection: {
             order: ["queryString", "cookie"],
             cache: ["cookie"],

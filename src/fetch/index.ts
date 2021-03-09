@@ -10,9 +10,7 @@ export const getDataFromApi = async (urls, params = {}) => {
                 ...params,
             },
         })
-        .then((res) => {
-            return res.data;
-        })
+        .then((res) => res.data)
         .catch((error) => {
             throw error;
         });

@@ -2,8 +2,12 @@ export enum ActionTypes {
     STATUS = "STATUS",
     GET_MOVIES_REQUEST = "@@movies/GET_MOVIES_REQUEST",
     GET_GENRE_REQUEST = "@@movies/GET_GENRE_REQUEST",
+    GET_SINGLE_MOVIE = "@@movies/GET_SINGLE_MOVIE",
     PUT_MOVIE_LIST = "@@movies/PUT_MOVIE_LIST",
+    PUT_SINGLE_MOVIE = "@@movies/PUT_SINGLE_MOVIE",
     PUT_MOVIE_GENRE = "@@movies/PUT_MOVIE_GENRE",
     PUT_TOTAL_PAGES = "@@movies/PUT_TOTAL_PAGES",
     PUT_CURRENT_PAGE = "@@movies/PUT_CURRENT_PAGE",
+    GET_MOVIE_NAME = "@@seacrch/GET_MOVIE_NAME",
+    PUT_MOVIE_NAME = "@@seacrch/PUT_MOVIE_NAME",
 }

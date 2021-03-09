@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { createWrapper } from "next-redux-wrapper";
 import { rootReducer } from "./rootReducer";
-import rootSaga from "./movie/sagas";
+import rootSaga from "./rootSaga";
 
 const bindMiddleware = (middleware) => {
     if (process.env.NODE_ENV !== "production") {
@@ -20,4 +20,4 @@ export const makeStore = (context) => {
     return store;
 };
 
-export const wrapper = createWrapper(makeStore, { debug: true });
+export const wrapper = createWrapper(makeStore, { debug: false });

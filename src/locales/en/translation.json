@@ -2,5 +2,15 @@
     "rate": "Rate",
     "voted": "Voted",
     "description": "Description",
-    "genre": "Genre"
+    "genre": "Genre",
+    "budget": "Budget",
+    "homepage": "Homepage",
+    "companies": "Companies",
+    "countries": "Countries",
+    "languages": "Languages",
+    "genres": "Genres",
+    "revenue": "Revenue",
+    "status": "Status",
+    "runtime": "Runtime",
+    "back": "Back"
 }

@@ -8,13 +8,18 @@ import {
     takeEvery,
     select,
 } from "redux-saga/effects";
-import { putMovieList, putMovieGenere, putTotalPage } from "../actions";
-import { ActionTypes } from "../actionTypes";
-import { getCorrentPage } from "../selectors";
+import {
+    putMovieList,
+    putMovieGenere,
+    putTotalPage,
+    putSingleMovie,
+} from "./actions";
+import { getCorrentPage } from "./selectors";
 import { getDataFromApi } from "src/fetch/";
+import { MOVIE } from "src/api";
 import * as url from "src/url.json";
 
-function* getMovieListRequest(): Object {
+export function* getMovieListRequest(): Object {
     const items = yield select(getCorrentPage);
     try {
         const movies = yield call(getDataFromApi, url.moviePopular, {
@@ -28,7 +33,16 @@ function* getMovieListRequest(): Object {
     }
 }
 
-function* getGenreRequest(): Object {
+export function* setSingleMovie(data): Object {
+    try {
+        const movies = yield call(getDataFromApi, `${MOVIE}${data.payload}`);
+        yield put(putSingleMovie(movies));
+    } catch (err) {
+        throw err;
+    }
+}
+
+export function* getGenreRequest(): Object {
     try {
         const genere = yield call(getDataFromApi, url.genreList, {
             language: "en-US",
@@ -38,12 +52,3 @@ function* getGenreRequest(): Object {
         throw err;
     }
 }
-
-function* rootSaga() {
-    yield all([
-        takeEvery(ActionTypes.GET_MOVIES_REQUEST, getMovieListRequest),
-        takeEvery(ActionTypes.GET_GENRE_REQUEST, getGenreRequest),
-    ]);
-}
-
-export default rootSaga;
