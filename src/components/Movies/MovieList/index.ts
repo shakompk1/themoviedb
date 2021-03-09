@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import MovieList from "./MovieList";
-import { InitialState } from "src/typescript/redux";
+import { InitialState } from "src/typescript/movieRedux";
 import { selectGenreSuper, getMovieWithGenre } from "src/store/movie/selectors";
 
 const mapStateToProps = (state: InitialState) => ({
