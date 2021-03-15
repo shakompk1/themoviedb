@@ -10,7 +10,8 @@ import {
 export const takeMovieList = () => action(ActionTypes.GET_MOVIES_REQUEST);
 export const takeMovieGenere = () => action(ActionTypes.GET_GENRE_REQUEST);
 export const takeMovieLanguage = () => action(ActionTypes.GET_LANGUAGE_REQUEST);
-export const takeMovieDelete = () => action(ActionTypes.DELETE_MOVIE_RATE);
+export const takeMovieDelete = (payload: number) =>
+    action(ActionTypes.DELETE_MOVIE_RATE, payload);
 
 export const takeMovieCast = (payload: number) =>
     action(ActionTypes.GET_MOVIE_CAST, payload);

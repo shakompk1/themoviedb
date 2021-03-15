@@ -10,7 +10,7 @@ import {
     putMovieLanguage,
 } from "./actions";
 import { putSpinerStatus } from "src/store/search/actions";
-import { getCorrentPage, getSingleMovieIdFromReducer } from "./selectors";
+import { getCorrentPage } from "./selectors";
 import { getDataFromApi, postDataToApi, deleteDataToApi } from "src/fetch/";
 import { MOVIE } from "src/api";
 import * as url from "src/url.json";
@@ -82,13 +82,12 @@ export function* setRateMovie(data): Object {
     yield delay(1000);
     yield put(putSpinerStatus(false));
 }
-export function* deleteMovieRate(): Object {
+export function* deleteMovieRate(data): Object {
     yield put(putSpinerStatus(true));
     try {
-        const id = yield select(getSingleMovieIdFromReducer);
         const rate = yield call(
             deleteDataToApi,
-            `${url.movie}${id}${url.rating}`
+            `${url.movie}${data.payload}${url.rating}`
         );
         yield put(putMovieRate(rate));
     } catch (err) {

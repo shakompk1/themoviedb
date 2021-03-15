@@ -15,13 +15,14 @@ const ModalRate: React.FC<IPostRate> = ({
     deleteRate,
     rateStatus,
     spinner,
+    id,
 }) => {
     const { t } = useTranslation();
     const [rate, setRate] = useState<number>(0);
     const classes = useStyles();
     const shrink = { shrink: true };
     const hadleClickSend = () => sendRate(rate);
-    const hadleClickDelete = () => deleteRate();
+    const hadleClickDelete = () => deleteRate(+id);
 
     const hadnleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         if (ONLY_NUMBERS.test(event.target.value)) {
