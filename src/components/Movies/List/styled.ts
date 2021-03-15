@@ -6,5 +6,4 @@ export const STMain = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     background: ${MainColor};
-    position: relative;
 `;

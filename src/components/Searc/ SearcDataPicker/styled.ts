@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme: Theme) => {
         data: {
             backgroundColor: LineColor,
             padding: theme.spacing(0, 1),
-            textAlign: "center",
+            "& input": {
+                textAlign: "center",
+            },
         },
     };
 });
