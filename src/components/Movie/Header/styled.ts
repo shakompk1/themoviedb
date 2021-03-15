@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => {
             width: "100px",
             display: "flex",
             justifyContent: "space-between",
-            backgroundColor: CardColor,
+            backgroundColor: 'transparent',
             color: LineColor,
             border: `2px solid ${LineColor}`,
         },

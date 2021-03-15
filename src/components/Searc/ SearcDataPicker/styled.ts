@@ -4,8 +4,12 @@ import { InputColor } from "src/color";
 const useStyles = makeStyles((theme: Theme) => {
     return {
         root: {
+            display: "flex",
             borderRadius: 10,
+            alignItems: "center",
             overflow: "hidden",
+            backgroundColor: InputColor,
+            height: 58,
         },
         label: {
             backgroundColor: InputColor,
