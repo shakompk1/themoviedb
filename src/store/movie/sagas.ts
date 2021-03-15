@@ -10,8 +10,8 @@ import {
     putMovieLanguage,
 } from "./actions";
 import { putSpinerStatus } from "src/store/search/actions";
-import { getCorrentPage } from "./selectors";
-import { getDataFromApi, postDataToApi } from "src/fetch/";
+import { getCorrentPage, getSingleMovieIdFromReducer } from "./selectors";
+import { getDataFromApi, postDataToApi, deleteDataToApi } from "src/fetch/";
 import { MOVIE } from "src/api";
 import * as url from "src/url.json";
 
@@ -68,6 +68,7 @@ export function* getSimilarMovie(data): Object {
 }
 
 export function* setRateMovie(data): Object {
+    yield put(putSpinerStatus(true));
     try {
         const rate = yield call(
             postDataToApi,
@@ -78,8 +79,24 @@ export function* setRateMovie(data): Object {
     } catch (err) {
         throw err;
     }
+    yield delay(1000);
+    yield put(putSpinerStatus(false));
 }
-
+export function* deleteMovieRate(): Object {
+    yield put(putSpinerStatus(true));
+    try {
+        const id = yield select(getSingleMovieIdFromReducer);
+        const rate = yield call(
+            deleteDataToApi,
+            `${url.movie}${id}${url.rating}`
+        );
+        yield put(putMovieRate(rate));
+    } catch (err) {
+        throw err;
+    }
+    yield delay(1000);
+    yield put(putSpinerStatus(false));
+}
 export function* getMovieCast(data): Object {
     try {
         const cast = yield call(

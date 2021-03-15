@@ -29,10 +29,15 @@ const useStyles = makeStyles((theme: Theme) =>
             borderRadius: 25,
             colorSecondary: LineColor,
             textAlign: "center",
+            margin: "auto",
         },
         button: {
             margin: theme.spacing(1),
             color: LineColor,
+        },
+        status: {
+            color: LineColor,
+            padding: theme.spacing(2),
         },
     })
 );

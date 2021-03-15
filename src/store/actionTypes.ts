@@ -25,4 +25,5 @@ export enum ActionTypes {
     PUT_SEARCH_ADULT = "@@search/PUT_SEARCH_ADULT",
     PUT_MOVIE_RATE = "@@movies/PUT_MOVIE_RATE",
     PUT_MOVIE_CAST = "@@movies/PUT_MOVIE_CAST",
+    DELETE_MOVIE_RATE = "@@movies/DELETE_MOVIE_RATE",
 }

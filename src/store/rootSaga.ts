@@ -8,6 +8,7 @@ import {
     setRateMovie,
     getMovieCast,
     getLanguageRequest,
+    deleteMovieRate,
 } from "./movie/sagas";
 import {
     searchMovieListRequest,
@@ -26,6 +27,7 @@ function* rootSaga() {
         takeEvery(ActionTypes.GET_MOVIE_GENRE, searchMovieListByGenreRequest),
         takeEvery(ActionTypes.GET_LANGUAGE_REQUEST, getLanguageRequest),
         takeEvery(ActionTypes.GET_MOVIE_CAST, getMovieCast),
+        takeEvery(ActionTypes.DELETE_MOVIE_RATE, deleteMovieRate),
         takeLatest(ActionTypes.GET_MOVIE_DISCOVER, filterMovieRequest),
     ]);
 }

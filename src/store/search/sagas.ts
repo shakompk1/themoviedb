@@ -14,7 +14,6 @@ import { getDataFromApi } from "src/fetch/";
 export function* searchMovieListRequest(): Object {
     const name = yield select(selectNameFromReducer);
     const language = yield select(selectLanguageFromReducer);
-    console.log(language);
     const date = yield select(selectDateFromReducer);
     const currentPage = yield select(getCorrentPage);
     const req = {

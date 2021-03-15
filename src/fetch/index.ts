@@ -33,3 +33,17 @@ export const postDataToApi = async (urls, params = {}) => {
             throw error;
         });
 };
+
+export const deleteDataToApi = async (urls, params = {}) => {
+    return await axios
+        .delete(`${url.host}${urls}`, {
+            params: {
+                api_key: API_KEY,
+                guest_session_id: QUEST_ID,
+            },
+        })
+        .then((res) => res.data)
+        .catch((error) => {
+            throw error;
+        });
+};

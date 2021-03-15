@@ -8,6 +8,8 @@ import {
     CastObg,
     Cast,
     Crew,
+    SpokenLanguages,
+    RateRequest,
 } from "src/typescript/movieRedux";
 
 export const getMovieStateFromReducer = (state): InitialState => state?.movie;
@@ -18,8 +20,14 @@ export const getGenreStateFromReducer = createSelector(
 );
 export const selectLanguageFromReducer = createSelector(
     getMovieStateFromReducer,
-    (data): any => data?.language
+    (data): Array<SpokenLanguages> => data?.language
 );
+
+export const selectRateFromReducer = createSelector(
+    getMovieStateFromReducer,
+    (data): RateRequest | any => data?.rate || {}
+);
+
 export const selectSingleMovieFromReducer = createSelector(
     getMovieStateFromReducer,
     (data): Movie | any => data?.movie || {}
