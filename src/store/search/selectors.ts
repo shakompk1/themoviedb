@@ -32,3 +32,17 @@ export const selectAdultFromReducer = createSelector(
     getSearchStateFromReducer,
     (store): string => store?.adult
 );
+
+export const selectSearchStatus = createSelector(
+    [
+        selectDateFromReducer,
+        selectGenreFromReducer,
+        selectLanguageFromReducer,
+        selectAdultFromReducer,
+    ],
+    (date, genre, language, adult) => {
+        if (date || genre || adult) {
+            return true;
+        }
+    }
+);

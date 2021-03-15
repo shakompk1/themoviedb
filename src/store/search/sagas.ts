@@ -46,15 +46,16 @@ export function* filterMovieRequest(): Object {
     const genre = yield select(selectGenreFromReducer);
     const language = yield select(selectLanguageFromReducer);
     const adult = yield select(selectAdultFromReducer);
+    const page = yield select(getCorrentPage);
     const movies = yield call(getDataFromApi, url.discover, {
         with_genres: genre,
         primary_release_year: date,
         language: language,
         include_adult: adult,
+        page: page,
     });
     yield put(putMovieList(movies));
     yield delay(1000);
-    console.log(movies);
     yield put(putTotalPage(movies));
     yield put(putSpinerStatus(false));
 }

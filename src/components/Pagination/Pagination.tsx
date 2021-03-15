@@ -5,13 +5,19 @@ import { TPPagination } from "./type";
 
 const PaginationBloc: React.FC<TPPagination> = ({
     totalPage,
+    searchStatus,
+    takeSearchlist,
     changePage,
     takeMovieList,
 }) => {
     const classes = useStyles();
     const handleChange = (_event, value: number) => {
         changePage(value);
-        takeMovieList();
+        if (searchStatus) {
+            takeSearchlist();
+        } else {
+            takeMovieList();
+        }
     };
     return (
         <Pagination
