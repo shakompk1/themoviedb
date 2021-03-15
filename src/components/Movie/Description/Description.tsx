@@ -30,7 +30,7 @@ const Description: React.FC<IMovie> = ({
             <Paper className={classes.page}>
                 <MovieRow name="budget">${budget?.toLocaleString()}</MovieRow>
                 <MovieRow name="homepage">
-                    <a href={homepage}>{homepage}</a>
+                    <a className={classes.href} href={homepage}>{homepage}</a>
                 </MovieRow>
                 <MovieRow name="companies">
                     {arrayToString(production_companies)}

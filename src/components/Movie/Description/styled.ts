@@ -14,6 +14,10 @@ const useStyles = makeStyles({
         overflow: "hidden",
         border: `1px solid ${LineColor}`,
     },
+    href: {
+        color: LineColor,
+        textDecoration: "none",
+    },
 });
 
 export default useStyles;

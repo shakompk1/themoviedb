@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme: Theme) => {
             borderRadius: 10,
             overflow: "hidden",
             backgroundColor: LineColor,
+            padding: theme.spacing(1),
         },
         label: {
             textAlign: "center",

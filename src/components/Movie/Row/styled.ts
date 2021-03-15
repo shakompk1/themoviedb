@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
             borderBottom: `2px solid ${LineColor}`,
             color: LineColor,
             backgroundColor: CardColor,
-            padding: theme.spacing(1, 2),
+            padding: theme.spacing(2),
             height: 40,
         },
         info: {

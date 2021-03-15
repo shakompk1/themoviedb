@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme: Theme) => {
         },
         label: {
             backgroundColor: LineColor,
-            textAlign: "left",
-            padding: theme.spacing(0, 1),
+            textAlign: "center",
+            padding: theme.spacing(1),
         },
         select: {
             width: "100%",

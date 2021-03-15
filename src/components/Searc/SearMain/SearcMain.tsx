@@ -19,7 +19,7 @@ const SeachMain: React.FC<IProps> = () => {
             justify="space-around"
             alignItems="center"
         >
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={3}>
                 <Paper className={classes.paper}>
                     <SearchInput />
                 </Paper>
@@ -29,12 +29,12 @@ const SeachMain: React.FC<IProps> = () => {
                     <SearchDataPicker />
                 </Paper>
             </Grid>
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={3}>
                 <Paper className={classes.paper}>
                     <SelectorGenre />
                 </Paper>
             </Grid>
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={3}>
                 <Paper className={classes.paper}>
                     <SelectorLanguage />
                 </Paper>

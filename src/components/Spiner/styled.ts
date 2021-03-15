@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         spinner: {
             width: "100%",
-            height: "80vh",
+            height: "100vh",
             background: MainColor,
             display: "flex",
             justifyContent: "center",
