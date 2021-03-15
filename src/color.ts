@@ -1,1 +1,12 @@
-export const MainColor = "#0a043c";
+export const MainColor = "#160f30";
+export const CardColor = "#241663";
+export const LineColor = "rgba(234, 231, 175, 0.85)";
+export const PlugColor = "rgba(0, 0, 0, 0.7)";
+export const White = "rgba(0,0,0,0.0)";
+
+//MoviList = ready
+//MovieCard = ready
+//MovieView = ready
+//MovieGenry = ready
+//Header = ready
+//Page = ready

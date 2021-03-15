@@ -4,10 +4,51 @@ export interface InitialState {
     totalPage: number;
     currentPage: number;
     movie: Movie | {};
+    cast: CastObg | {};
+    rate: RateRequest | {};
+    similarMovie: Array<MovieList>;
     movieList: Array<MovieList>;
     movieGenere?: GenreList | {};
+    language: Array<SpokenLanguages> | [];
+}
+export interface RateRequest {
+    success: boolean;
+    status_code: number;
+    status_message: string;
 }
 
+export interface CastObg {
+    id: number;
+    cast: Array<Cast>;
+    crew: Array<Crew>;
+}
+export interface Cast {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: number;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string;
+    cast_id: number;
+    character: string;
+    credit_id: string;
+    order: number;
+}
+export interface Crew {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string;
+    credit_id: string;
+    department: string;
+    job: string;
+}
 export interface MovieList {
     adult: boolean;
     backdrop_path: string;
@@ -33,7 +74,7 @@ export interface Movie {
     budget: number;
     genres: Array<Genre>;
     homepage: string | null;
-    id: number;
+    id?: number;
     imdb_id: string | null;
     original_language: string;
     original_title: string;
@@ -77,5 +118,6 @@ export interface ProductionCountries {
 
 export interface SpokenLanguages {
     iso_639_1: string;
+    english_name: string;
     name: string;
 }

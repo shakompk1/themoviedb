@@ -2,5 +2,11 @@
     "host": "https://api.themoviedb.org/3",
     "moviePopular": "/movie/popular",
     "genreList": "/genre/movie/list",
-    "searchMovie": "/search/movie"
+    "language": "/configuration/languages",
+    "search": "/search/movie",
+    "discover": "/discover/movie",
+    "movie": "/movie/",
+    "similar": "/similar",
+    "rating": "/rating",
+    "casts": "/casts"
 }

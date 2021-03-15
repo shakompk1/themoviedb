@@ -1,42 +1,41 @@
 import "date-fns";
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
-import {
-    MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker,
-} from "@material-ui/pickers";
-
-export function SearchDataPicker() {
-    // The first commit of Material-UI
+import { useTranslation } from "react-i18next";
+import { MuiPickersUtilsProvider, DatePicker } from "@material-ui/pickers";
+import InputLabel from "@material-ui/core/InputLabel";
+import useStyles from "./styled";
+import { IProps } from "./type";
+const SearchDataPicker: React.FC<IProps> = ({ putDate, takeDiscover }) => {
     const [selectedDate, setSelectedDate] = React.useState<Date | number>(
-        new Date("2014-08-18T21:11:54")
+        new Date()
     );
-
+    const { t } = useTranslation();
+    const classes = useStyles();
     const handleDateChange = (date: Date | null) => {
-        setSelectedDate(date.getTime());
+        setSelectedDate(date);
+        putDate(date.getFullYear().toString());
+        takeDiscover();
     };
-
-    console.log(selectedDate);
 
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <KeyboardDatePicker
-                disableToolbar
-                variant="inline"
-                format="MM/dd/yyyy"
-                margin="normal"
-                id="date-picker-inline"
-                label="Date picker inline"
-                value={selectedDate}
-                onChange={handleDateChange}
-                KeyboardButtonProps={{
-                    "aria-label": "change date",
-                }}
-            />
+            <div className={classes.root}>
+                <InputLabel
+                    className={classes.label}
+                    id="demo-simple-data-label"
+                >
+                    {t("date")}
+                </InputLabel>
+                <DatePicker
+                    className={classes.data}
+                    views={["year"]}
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                />
+            </div>
         </MuiPickersUtilsProvider>
     );
-}
+};
 
 export default SearchDataPicker;

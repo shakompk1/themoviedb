@@ -3,7 +3,12 @@ import { ActionTypes } from "../actionTypes";
 import { InitialState } from "src/typescript/searchRedux";
 
 const initialState: InitialState = {
-    status: "",
+    spiner: false,
+    movieName: "",
+    date: "",
+    genre: "",
+    language: "en-US",
+    adult: "",
 };
 
 export const searchReducer = (
@@ -15,7 +20,17 @@ export const searchReducer = (
             return { ...state, ...action.payload.search };
         }
         case ActionTypes.PUT_MOVIE_NAME:
-            return { ...state, status: action.payload };
+            return { ...state, movieName: action.payload };
+        case ActionTypes.SPINER_STATUS:
+            return { ...state, spiner: action.payload };
+        case ActionTypes.PUT_SEARCH_DATE:
+            return { ...state, date: action.payload };
+        case ActionTypes.PUT_SEARCH_GENRE:
+            return { ...state, genre: action.payload };
+        case ActionTypes.PUT_SEARCH_LANGUAGE:
+            return { ...state, language: action.payload };
+        case ActionTypes.PUT_SEARCH_ADULT:
+            return { ...state, adult: action.payload };
         default:
             return state;
     }

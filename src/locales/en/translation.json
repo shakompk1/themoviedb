@@ -12,5 +12,13 @@
     "revenue": "Revenue",
     "status": "Status",
     "runtime": "Runtime",
-    "back": "Back"
+    "back": "Back",
+    "movie": "Movie",
+    "send": "Send",
+    "delete": "Delete",
+    "cast": "cast",
+    "info": "info",
+    "adult": "Adult",
+    "search": "Search",
+    "date": "Date"
 }

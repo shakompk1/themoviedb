@@ -1,3 +1,8 @@
 export interface InitialState {
-    status: string;
+    spiner: boolean;
+    movieName: string;
+    date: string;
+    genre: string;
+    language: string;
+    adult: string;
 }

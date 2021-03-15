@@ -1,27 +1,32 @@
-import {
-    all,
-    call,
-    delay,
-    put,
-    take,
-    takeLatest,
-    takeEvery,
-    select,
-} from "redux-saga/effects";
+import { all, takeLatest, takeEvery } from "redux-saga/effects";
 import { ActionTypes } from "./actionTypes";
 import {
     getGenreRequest,
     setSingleMovie,
-    getMovieListRequest,
+    getCurrentPage,
+    getSimilarMovie,
+    setRateMovie,
+    getMovieCast,
+    getLanguageRequest,
 } from "./movie/sagas";
-import { searchMovieListRequest } from "./search/sagas";
+import {
+    searchMovieListRequest,
+    searchMovieListByGenreRequest,
+    filterMovieRequest,
+} from "./search/sagas";
 
 function* rootSaga() {
     yield all([
-        takeEvery(ActionTypes.GET_MOVIES_REQUEST, getMovieListRequest),
+        takeEvery(ActionTypes.GET_MOVIES_REQUEST, getCurrentPage),
         takeEvery(ActionTypes.GET_GENRE_REQUEST, getGenreRequest),
         takeEvery(ActionTypes.GET_SINGLE_MOVIE, setSingleMovie),
         takeLatest(ActionTypes.GET_MOVIE_NAME, searchMovieListRequest),
+        takeEvery(ActionTypes.GET_SIMILAR_MOVIE, getSimilarMovie),
+        takeEvery(ActionTypes.PUT_MOVIE_RATE, setRateMovie),
+        takeEvery(ActionTypes.GET_MOVIE_GENRE, searchMovieListByGenreRequest),
+        takeEvery(ActionTypes.GET_LANGUAGE_REQUEST, getLanguageRequest),
+        takeEvery(ActionTypes.GET_MOVIE_CAST, getMovieCast),
+        takeLatest(ActionTypes.GET_MOVIE_DISCOVER, filterMovieRequest),
     ]);
 }
 export default rootSaga;

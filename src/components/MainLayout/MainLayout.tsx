@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import SeachMain from "../Searc/SearMain";
 
 const MainLayout = ({ children, title = "Next app" }) => {
@@ -11,11 +9,9 @@ const MainLayout = ({ children, title = "Next app" }) => {
                 <meta charSet="utf-8" />
                 <meta name="keywords" content="movie" />
             </Head>
-            {/* <nav>
-                <div>
-                    <SeachMain />
-                </div>
-            </nav> */}
+            <nav>
+                <SeachMain />
+            </nav>
             <main>{children}</main>
         </>
     );

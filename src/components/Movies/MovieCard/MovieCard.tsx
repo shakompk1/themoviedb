@@ -4,7 +4,7 @@ import MovieView from "../MovieView";
 import MovieGenre from "../MovieGenre";
 import * as Styled from "./styled";
 import { TPMovie, Genre } from "./type";
-import { MOVIE_POSTER, MOVIE } from "src/api";
+import { POSTER, MOVIE } from "src/api";
 
 const MovieCard: React.FC<TPMovie> = ({
     genre_name,
@@ -19,7 +19,7 @@ const MovieCard: React.FC<TPMovie> = ({
 }) => (
     <Styled.STCard>
         <Styled.STCardMedia
-            image={`${MOVIE_POSTER}${poster_path}`}
+            image={`${POSTER}${poster_path}`}
             title={original_title}
         >
             <MovieView

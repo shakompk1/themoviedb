@@ -1,5 +1,5 @@
 export interface TPPagination {
     totalPage: number;
-    changePage: (number) => void;
+    changePage: (number: number) => void;
     takeMovieList: () => void;
 }

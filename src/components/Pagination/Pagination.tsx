@@ -1,23 +1,26 @@
 import React from "react";
-import { STPagination } from "./styled";
+import Pagination from "@material-ui/lab/Pagination";
+import useStyles from "./styled";
 import { TPPagination } from "./type";
 
-const Pagination: React.FC<TPPagination> = ({
+const PaginationBloc: React.FC<TPPagination> = ({
     totalPage,
     changePage,
     takeMovieList,
 }) => {
-    const onHandleChange = (event, value: number) => {
+    const classes = useStyles();
+    const handleChange = (_event, value: number) => {
         changePage(value);
         takeMovieList();
     };
     return (
-        <STPagination
+        <Pagination
             count={totalPage}
             color="secondary"
-            onChange={onHandleChange}
+            onChange={handleChange}
+            className={classes.root}
         />
     );
 };
 
-export default Pagination;
+export default PaginationBloc;

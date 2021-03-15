@@ -1,5 +1,5 @@
 import * as url from "src/url.json";
-import { API_KEY } from "src/api";
+import { API_KEY, QUEST_ID } from "src/api";
 import axios from "axios";
 
 export const getDataFromApi = async (urls, params = {}) => {
@@ -10,6 +10,24 @@ export const getDataFromApi = async (urls, params = {}) => {
                 ...params,
             },
         })
+        .then((res) => res.data)
+        .catch((error) => {
+            throw error;
+        });
+};
+
+export const postDataToApi = async (urls, params = {}) => {
+    return await axios
+        .post(
+            `${url.host}${urls}`,
+            { ...params },
+            {
+                params: {
+                    api_key: API_KEY,
+                    guest_session_id: QUEST_ID,
+                },
+            }
+        )
         .then((res) => res.data)
         .catch((error) => {
             throw error;

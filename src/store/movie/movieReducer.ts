@@ -7,8 +7,12 @@ const initialState: InitialState = {
     totalPage: 0,
     currentPage: 1,
     movie: {},
+    cast: {},
+    similarMovie: [],
+    rate: {},
     movieList: [],
     movieGenere: {},
+    language: [],
 };
 
 export const movieReducer = (
@@ -48,6 +52,26 @@ export const movieReducer = (
             return {
                 ...state,
                 movie: action.payload,
+            };
+        case ActionTypes.PUT_SIMILAR_MOVIE:
+            return {
+                ...state,
+                similarMovie: action.payload.results,
+            };
+        case ActionTypes.PUT_MOVIE_CAST:
+            return {
+                ...state,
+                cast: action.payload,
+            };
+        case ActionTypes.PUT_MOVIE_LANGUAGE:
+            return {
+                ...state,
+                language: action.payload,
+            };
+        case ActionTypes.GET_MOVIE_RATE:
+            return {
+                ...state,
+                rate: action.payload,
             };
         default:
             return state;

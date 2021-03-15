@@ -3,42 +3,48 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import SearchInput from "../SearcInput";
 import SearchDataPicker from "../ SearcDataPicker";
-import { makeStyles } from "@material-ui/core/styles";
+import SelectorGenre from "../SelectorGenre";
+import SelectorLanguage from "../SelectorLanguage";
+import CheckboxBlock from "../Checkbox";
+import { IProps } from "./type";
+import useStyles from "./styled";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: "center",
-        color: theme.palette.text.secondary,
-    },
-}));
-
-const SeachMain = () => {
+const SeachMain: React.FC<IProps> = () => {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={6} sm={3}>
-                    <Paper className={classes.paper}>
-                        <SearchInput />
-                    </Paper>
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                    <Paper className={classes.paper}>
-                        <SearchDataPicker />
-                    </Paper>
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                    <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                </Grid>
-                <Grid item xs={6} sm={3}>
-                    <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                </Grid>
+        <Grid
+            className={classes.root}
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+        >
+            <Grid item xs={12} sm={2}>
+                <Paper className={classes.paper}>
+                    <SearchInput />
+                </Paper>
             </Grid>
-        </div>
+            <Grid item xs={12} sm={1}>
+                <Paper className={classes.paper}>
+                    <SearchDataPicker />
+                </Paper>
+            </Grid>
+            <Grid item xs={12} sm={2}>
+                <Paper className={classes.paper}>
+                    <SelectorGenre />
+                </Paper>
+            </Grid>
+            <Grid item xs={12} sm={2}>
+                <Paper className={classes.paper}>
+                    <SelectorLanguage />
+                </Paper>
+            </Grid>
+            <Grid item xs={12} sm={1}>
+                <Paper className={classes.paper}>
+                    <CheckboxBlock />
+                </Paper>
+            </Grid>
+        </Grid>
     );
 };
 

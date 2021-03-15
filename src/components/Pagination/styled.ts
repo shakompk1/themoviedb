@@ -1,8 +1,21 @@
-import Pagination from "@material-ui/lab/Pagination";
-import styled from "styled-components";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { LineColor, CardColor } from "src/color";
 
-export const STPagination = styled(Pagination)`
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-`;
+const useStyles = makeStyles((theme) =>
+    createStyles({
+        root: {
+            display: "flex",
+            padding: 20,
+            justifyContent: "center",
+            "& > *": {
+                marginTop: theme.spacing(2),
+            },
+            "& svg, button, div": {
+                color: LineColor,
+                backgroundColor: CardColor,
+            },
+        },
+    })
+);
+
+export default useStyles;

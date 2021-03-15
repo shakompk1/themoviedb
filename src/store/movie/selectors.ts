@@ -5,23 +5,34 @@ import {
     Genre,
     MovieList,
     Movie,
+    CastObg,
+    Cast,
+    Crew,
 } from "src/typescript/movieRedux";
 
-export const getMovieStateFromReducer = (state): InitialState => state.movie;
+export const getMovieStateFromReducer = (state): InitialState => state?.movie;
 
 export const getGenreStateFromReducer = createSelector(
     getMovieStateFromReducer,
     (movie): GenreList => movie?.movieGenere
 );
-
-export const getSingleMovieFromReducer = createSelector(
+export const selectLanguageFromReducer = createSelector(
     getMovieStateFromReducer,
-    (data): Movie | {} => data?.movie
+    (data): any => data?.language
+);
+export const selectSingleMovieFromReducer = createSelector(
+    getMovieStateFromReducer,
+    (data): Movie | any => data?.movie || {}
+);
+
+export const selectCastFromReducer = createSelector(
+    getMovieStateFromReducer,
+    (data): CastObg | any => data?.cast
 );
 
 export const selectMovieSuper = createSelector(
     getMovieStateFromReducer,
-    (movie): Array<MovieList> => movie.movieList
+    (movie): Array<MovieList> => movie?.movieList
 );
 
 export const selectGenreSuper = createSelector(
@@ -29,13 +40,38 @@ export const selectGenreSuper = createSelector(
     (movie): Array<Genre> => movie?.genres
 );
 
+export const selectSimilarMovie = createSelector(
+    getMovieStateFromReducer,
+    (movie): Array<MovieList> => movie?.similarMovie.slice(0, 6)
+);
+
+export const getSingleMovieIdFromReducer = createSelector(
+    selectSingleMovieFromReducer,
+    (data): number => data?.id
+);
+
+export const getmovieCast = createSelector(
+    selectCastFromReducer,
+    (data): Array<Cast> => data?.cast
+);
+
+export const getmovieCrew = createSelector(
+    selectCastFromReducer,
+    (data): Array<Crew> => data?.crew
+);
+
+export const connectCrewAndCast = createSelector(
+    [getmovieCast, getmovieCrew],
+    (cast, crew) => [...cast, ...crew]
+);
+
 export const getMovieWithGenre = createSelector(
     [selectMovieSuper, selectGenreSuper],
     (movie, genre): Array<MovieList> => {
         movie.map((item) => {
             let genreNamesArr = [];
-            for (let i = 0; i < item.genre_ids.length; i++) {
-                for (let j = 0; j < genre.length; j++) {
+            for (let i = 0; i < item?.genre_ids.length; i++) {
+                for (let j = 0; j < genre?.length; j++) {
                     if (item.genre_ids[i] == genre[j].id) {
                         genreNamesArr.push(genre[j]);
                     }

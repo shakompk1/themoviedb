@@ -1,25 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import useStyles from "./style";
+import { IProps } from "./type";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        "& .MuiTextField-root": {
-            margin: theme.spacing(1),
-            width: "25ch",
-        },
-    },
-}));
-
-const SearchInput: React.FC<any> = ({
+const SearchInput: React.FC<IProps> = ({
     putMovieName,
     takeMovieName,
     takeMovie,
 }) => {
-    const [name, setName] = useState("");
     const classes = useStyles();
-
-    const onHandleChange = (event) => {
+    const { t } = useTranslation();
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         putMovieName(event.target.value);
         if (event.target.value) {
             takeMovieName(event.target.value);
@@ -28,13 +21,15 @@ const SearchInput: React.FC<any> = ({
         }
     };
     return (
-        <div>
+        <div className={classes.root}>
+            <InputLabel className={classes.label} id="outlined-search">
+                {t("search")}
+            </InputLabel>
             <TextField
+                className={classes.input}
                 id="outlined-search"
-                label="Search field"
                 type="search"
-                variant="outlined"
-                onChange={onHandleChange}
+                onChange={handleChange}
             />
         </div>
     );
