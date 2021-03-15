@@ -31,6 +31,7 @@ const SelectorLanguage: React.FC<IProps> = ({
                 value={id}
                 onChange={handleChange}
                 className={classes.select}
+                variant="outlined"
             >
                 <MenuItem value=""></MenuItem>
                 {language?.map((item) => (

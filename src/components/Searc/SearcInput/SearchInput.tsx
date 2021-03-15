@@ -27,7 +27,8 @@ const SearchInput: React.FC<IProps> = ({
             </InputLabel>
             <TextField
                 className={classes.input}
-                id="outlined-search"
+                id="outlined-basic"
+                variant="outlined"
                 type="search"
                 onChange={handleChange}
             />

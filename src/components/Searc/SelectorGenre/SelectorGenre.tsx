@@ -18,13 +18,14 @@ const SelectorGenre: React.FC<IProps> = ({ genre, putGenre, takeDiscover }) => {
     return (
         <div className={classes.root}>
             <InputLabel className={classes.label} id="demo-simple-select-label">
-                {t('genres')}
+                {t("genres")}
             </InputLabel>
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={id}
                 onChange={handleChange}
+                variant="outlined"
                 className={classes.select}
             >
                 <MenuItem value=""></MenuItem>

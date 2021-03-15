@@ -24,11 +24,6 @@ const SeachMain: React.FC<IProps> = () => {
                     <SearchInput />
                 </Paper>
             </Grid>
-            <Grid item xs={12} sm={1}>
-                <Paper className={classes.paper}>
-                    <SearchDataPicker />
-                </Paper>
-            </Grid>
             <Grid item xs={12} sm={3}>
                 <Paper className={classes.paper}>
                     <SelectorGenre />
@@ -42,6 +37,11 @@ const SeachMain: React.FC<IProps> = () => {
             <Grid item xs={12} sm={1}>
                 <Paper className={classes.paper}>
                     <CheckboxBlock />
+                </Paper>
+            </Grid>
+            <Grid item xs={12} sm={1}>
+                <Paper className={classes.paper}>
+                    <SearchDataPicker />
                 </Paper>
             </Grid>
         </Grid>
