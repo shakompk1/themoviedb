@@ -42,6 +42,10 @@ const useStyles = makeStyles({
         color: LineColor,
         border: `2px solid ${LineColor}`,
     },
+    footer: {
+        padding: "5px",
+
+    },
 });
 
 export default useStyles;

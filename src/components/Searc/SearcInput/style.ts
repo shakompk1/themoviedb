@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { LineColor } from "src/color";
+import { InputColor } from "src/color";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -8,13 +8,13 @@ const useStyles = makeStyles((theme) => ({
     },
     label: {
         width: "100%",
-        backgroundColor: LineColor,
+        backgroundColor: InputColor,
         textAlign: "center",
         padding: theme.spacing(1),
     },
     input: {
         width: "100%",
-        backgroundColor: LineColor,
+        backgroundColor: InputColor,
     },
 }));
 

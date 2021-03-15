@@ -54,5 +54,7 @@ export function* filterMovieRequest(): Object {
     });
     yield put(putMovieList(movies));
     yield delay(1000);
+    console.log(movies);
+    yield put(putTotalPage(movies));
     yield put(putSpinerStatus(false));
 }

@@ -1,12 +1,12 @@
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import { LineColor } from "src/color";
+import { InputColor } from "src/color";
 
 const useStyles = makeStyles((theme: Theme) => {
     return {
         root: {
             borderRadius: 10,
             overflow: "hidden",
-            backgroundColor: LineColor,
+            backgroundColor: InputColor,
             padding: theme.spacing(1),
         },
         label: {

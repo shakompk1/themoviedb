@@ -50,6 +50,7 @@ const MovieCard: React.FC<TPMovie> = ({
                 justify="space-around"
                 alignItems="center"
                 spacing={1}
+                className={classes.footer}
             >
                 <Grid item xs={8}>
                     {genre_name.map((item: Genre, index: number) => (

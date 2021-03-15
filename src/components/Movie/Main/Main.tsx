@@ -24,7 +24,7 @@ const Main: React.FC<IProps> = ({ poster_path, overview }) => {
             container
             direction="row"
             justify="space-around"
-            alignItems="center"
+            alignItems="flex-start"
             className={classes.root}
         >
             <Grid item xs={8}>
