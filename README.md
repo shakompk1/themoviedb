@@ -13,6 +13,7 @@ Movie's Card
 Also, when you hover over the eye, more detailed information about the film appears.
 It is possible to click on a genre and a list of films of the selected genre will be displayed.
 Clicking on the movie title opens the movie page.
+![mainPage](https://github.com/shakompk1/themoviedb/blob/main/assets/mainPage.png)
  
 
 Movie's Page
